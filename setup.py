@@ -16,9 +16,9 @@ setup(
     packages=find_packages(),
     # If all your code are in a module, use py_modules instead of packages:
     # py_modules=['ser'],
-    scripts=['Demographics_dynamics'],
+    scripts=['Demographics_dynamics.py'],
     test_suite='test',
-    entry_points={'console_scripts':['ph_interp = Demographics_dynamics:with_args']} # this is the last one
+    entry_points={'console_scripts':['ph_interp = Demographics_dynamics:with_args']}, # this is the last one
     install_requires=['numpy>=1.13', 'matplotlib>=2.0', 'scipy>=1.3'],
     classifiers=[
         'Intended Audience :: Science/Research',
