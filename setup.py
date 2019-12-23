@@ -18,6 +18,7 @@ setup(
     # py_modules=['ser'],
     scripts=['Demographics_dynamics'],
     test_suite='test',
+    entry_points={'console_scripts':['ph_interp = Demographics_dynamics:with_args']} # this is the last one
     install_requires=['numpy>=1.13', 'matplotlib>=2.0', 'scipy>=1.3'],
     classifiers=[
         'Intended Audience :: Science/Research',
