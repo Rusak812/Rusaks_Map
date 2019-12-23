@@ -18,7 +18,7 @@ setup(
     # py_modules=['ser'],
     # scripts=['bin/serpens'],
     test_suite='test',
-    install_requires=['numpy>=1.13', 'matplotlib>=2.0', 'scipy=>1.3'],
+    install_requires=['numpy>=1.13', 'matplotlib>=2.0', 'scipy>=1.3'],
     classifiers=[
         'Intended Audience :: Science/Research',
         'Intended Audience :: Education',
