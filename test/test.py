@@ -4,6 +4,9 @@ import numpy as np
 from my_functions import average_population, Pareto
 
 class MyTestCase(unittest.TestCase):
+    data_Foundation = np.genfromtxt('population_data/'+"Foundation.data",names=True)
+    pop = data_Foundation['Population']
+    
     def test_Pareto(self):
         if (Pareto(pop) < 0):
             result = True
