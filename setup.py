@@ -16,7 +16,7 @@ setup(
     packages=find_packages(),
     # If all your code are in a module, use py_modules instead of packages:
     # py_modules=['ser'],
-    # scripts=['bin/serpens'],
+    scripts=['Demographics_dynamics'],
     test_suite='test',
     install_requires=['numpy>=1.13', 'matplotlib>=2.0', 'scipy>=1.3'],
     classifiers=[
