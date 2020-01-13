@@ -6,7 +6,7 @@ from scipy import interpolate
 from matplotlib import animation
 from my_functions import average_population, Pareto
 
-'''First part'''
+#First part
 def createFolder(directory):
     try:
         if not os.path.exists(directory):
@@ -14,7 +14,7 @@ def createFolder(directory):
     except OSError:
         print ('Error: Creating directory. ' +  directory)
 
-''' Reading data files'''
+# Reading data files'''
 data_Foundation = np.genfromtxt('population_data/'+"Foundation.data",names=True)
 
 nombres = []
@@ -58,9 +58,9 @@ for _ in Foundation:
     j += 1
 
 
-'''Second Part'''
+#'''Second Part'''
 
-''' Reading data files'''
+#''' Reading data files'''
 file_name = 'population_data/'+"Foundation.data"
 data = np.genfromtxt(file_name,names=True)
 nombres = []
@@ -79,7 +79,7 @@ Latitude = data['Latitude'] #Latitude
 Population = data['Population'] #Population
 Foundation = data['Foundation'] #Foundation
 
-'''Graphics'''
+#'''Graphics'''
 fig = plt.figure(figsize=(16,9))
 n = 34
 x = Longitude
