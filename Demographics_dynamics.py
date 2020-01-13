@@ -33,7 +33,7 @@ with open(name_of_file) as f:
     Foundation = data_Foundation['Foundation']
     Latitude = data_Foundation['Latitude'] #Latitude
     Longitude = data_Foundation['Longitude'] #Population
-    pop = data_Foundation['Population']
+    Population = data_Foundation['Population']
 
     print(average_population(pop))
     Pareto(pop)
