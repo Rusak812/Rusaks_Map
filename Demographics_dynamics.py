@@ -35,8 +35,8 @@ with open(name_of_file) as f:
     Longitude = data_Foundation['Longitude'] #Population
     Population = data_Foundation['Population']
 
-    print(average_population(pop))
-    Pareto(pop)
+    print(average_population(Population))
+    Pareto(Population)
 
 
 #'''Second Part'''
