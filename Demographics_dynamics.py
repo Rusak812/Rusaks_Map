@@ -1,4 +1,5 @@
 import os
+import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import re
@@ -8,17 +9,17 @@ from my_functions import average_population, Pareto
 
 #First part
 def createFolder(directory):
-    try:
-        if not os.path.exists(directory):
-            os.makedirs(directory, exist_ok=True)
-    except OSError:
-        print ('Error: Creating directory. ' +  directory)
-
+    os.makedirs(directory, exist_ok=True)
+    
 # Reading data files'''
-data_Foundation = np.genfromtxt('population_data/'+"Foundation.data",names=True)
+name_of_file = sys.argv[1]
+#file_name = "Foundation.data"
+#data_Foundation = np.genfromtxt('population_data/'+"Foundation.data",names=True)
+data_Foundation = np.genfromtxt(name_of_file,names=True)
 
 nombres = []
-f = open('population_data/'+"Foundation.data")
+f = open(name_of_file)
+#f = open('population_data/'+"Foundation.data")
 i = 0
 for line in f:
     if i > 0:
@@ -59,26 +60,6 @@ for _ in Foundation:
 
 
 #'''Second Part'''
-
-#''' Reading data files'''
-file_name = 'population_data/'+"Foundation.data"
-data = np.genfromtxt(file_name,names=True)
-nombres = []
-f = open(file_name)
-i = 0
-for line in f:
-    if i > 0:
-        line = re.sub(r'[^\w\s]+|[\d]+', r'', line).strip()
-        nombres.append(line)
-        print(line, ' ', i)
-    i = i + 1
-
-
-Longitude = data['Longitude'] #Longitude
-Latitude = data['Latitude'] #Latitude
-Population = data['Population'] #Population
-Foundation = data['Foundation'] #Foundation
-
 #'''Graphics'''
 fig = plt.figure(figsize=(16,9))
 n = 34
