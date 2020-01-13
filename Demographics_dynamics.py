@@ -18,45 +18,25 @@ name_of_file = sys.argv[1]
 data_Foundation = np.genfromtxt(name_of_file,names=True)
 
 nombres = []
-f = open(name_of_file)
-#f = open('population_data/'+"Foundation.data")
-i = 0
-for line in f:
-    if i > 0:
-        line = re.sub(r'[^\w\s]+|[\d]+', r'', line).strip()
-        nombres.append(line)
-        #print(line)
-    i = i + 1
+#f = open(name_of_file)
+with open(name_of_file) as f: 
+    #f = open('population_data/'+"Foundation.data")
+    i = 0
+    for line in f:
+        if i > 0:
+            line = re.sub(r'[^\w\s]+|[\d]+', r'', line).strip()
+            nombres.append(line)
+            #print(line)
+        i = i + 1
 
 
-Foundation = data_Foundation['Foundation']
-Latitude = data_Foundation['Latitude'] #Latitude
-Longitude = data_Foundation['Longitude'] #Population
-pop = data_Foundation['Population']
+    Foundation = data_Foundation['Foundation']
+    Latitude = data_Foundation['Latitude'] #Latitude
+    Longitude = data_Foundation['Longitude'] #Population
+    pop = data_Foundation['Population']
 
-print(average_population(pop))
-Pareto(pop)
-j = 0
-for _ in Foundation:
-    file_name = 'population_data/'+nombres[j]+'.txt'
-    if os.path.isfile(file_name):
-        data = np.genfromtxt(file_name,names=True)
-        Year = data['Year']
-        Population = data['Population']
-
-        tck = interpolate.splrep(Year, Population)
-        for year in range(int (Foundation[j]), 2016, 1):
-            plt.scatter(year, interpolate.splev(year, tck))
-        plt.title(nombres[j] + " Population Dynamics")
-        plt.xlabel("Year")
-        plt.ylabel("Population")
-        directoryname = 'population_data/results/'
-        createFolder(directoryname)
-        plt.savefig(directoryname + nombres[j] + " Population Dynamics" + '.png', format = 'png')
-        print(nombres[j] + " Population Dynamics" + '.png' + ' was drawn')
-        #plt.show()
-        plt.clf()
-    j += 1
+    print(average_population(pop))
+    Pareto(pop)
 
 
 #'''Second Part'''
@@ -69,9 +49,10 @@ m = 1
 def ani(i, x, y, nombres, m = 1):
     #plt.clf()
     plt.scatter(x[i], y[i], Population[i]/np.log10(Population[i]), lw = 3)
-    plt.text(x[i]-0.01, y[i]-0.02, nombres[i] + ' ' + str(int(Foundation[i])))
+    #plt.text(x[i]-0.01, y[i]-0.02, nombres[i] + ' ' + str(int(Foundation[i])))
+    plt.text(x[i]-0.01, y[i]-0.02, '{} {}'.format(nombres[i], int(Foundation[i])))
     plt.axis([45.1, 46.2, 55.2, 55.9])
-    plt.title('Dynamics Foundation Map ' + str(int(Foundation[i])))
+    plt.title('{} {}'.format('Dynamics Foundation Map ', int(Foundation[i])))
     plt.xlabel("Longitude, deg")
     plt.ylabel("Latitude, deg")
 
