@@ -61,6 +61,6 @@ def ani(i, x, y, nombres, m = 1):
 anim = animation.FuncAnimation(fig, ani, fargs = (x, y, nombres), frames = n, interval = 10)
 directoryname = 'population_data/results/'
 createFolder(directoryname)
-anim.save(directoryname + 'Maps.gif', writer='imagemagick', fps = 1, dpi = 150)
+anim.save(os.path.join(directoryname, 'Maps.gif'), writer='imagemagick', fps = 1, dpi = 150)
 print ('Painting animation was finished')
 
